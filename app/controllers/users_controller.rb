@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :load_user, only: [:show, :destroy]
+  before_action :ensure_logged_in, only: [:show, :destroy]
 
 
   def new
