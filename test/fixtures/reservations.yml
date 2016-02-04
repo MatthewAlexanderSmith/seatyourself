@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user_id: 
-  restaurant_id: 
-  seats: 1
-  reservation_time: 2016-02-03 15:34:31
-
-two:
-  user_id: 
-  restaurant_id: 
-  seats: 1
-  reservation_time: 2016-02-03 15:34:31
+#one:
+#  user_id:
+#  restaurant_id:
+#  seats: 1
+#  reservation_time: 2016-02-03 15:34:31
+#
+#two:
+#  user_id:
+#  restaurant_id:
+#  seats: 1
+#  reservation_time: 2016-02-03 15:34:31
