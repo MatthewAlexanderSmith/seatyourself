@@ -1,2 +1,56 @@
-<h1>Restaurants#create</h1>
+<%= form_for(@restaurants) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %></>
+    <%= f.number_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+
+<div class="field">
+  <%= f.label :capacity %><br />
+  <%= f.number_field :capacity %>
+</div>
+
+<div class="field">
+  <%= f.label :picture_url %><br />
+  <%= f.image :picture_url %>
+</div>
+     <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p>Find me in app/views/restaurants/create.html.erb</p>
