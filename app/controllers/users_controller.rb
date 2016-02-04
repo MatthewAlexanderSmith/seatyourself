@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
-      redirect_to products_url, notice: "Signed up!"
+      redirect_to new_user_url, notice: "Signed up!"
       # redirect_to sessions_new_url, notice: "Sign Up Successful - Please Login"
     else
       render :new
