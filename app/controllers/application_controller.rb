@@ -12,12 +12,7 @@ class ApplicationController < ActionController::Base
   def ensure_logged_in
     unless current_user
       flash[:alert] = "Please Log in"
-      redirect_to new_sessions_path
+      #redirect_to new_sessions_path
     end
   end
 end
-
-
-
-
-
