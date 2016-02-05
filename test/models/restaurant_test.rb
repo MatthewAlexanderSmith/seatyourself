@@ -7,20 +7,34 @@ class RestaurantTest < ActiveSupport::TestCase
   # end
 
   setup do
-    @small = FactoryGirl.create(:small_restaurant)
-    @large = FactoryGirl.create(:large_restaurant)
+    @restaurant = FactoryGirl.create(:restaurant)
+
+
+    @reservation2 = FactoryGirl.create(:reservation)
+
+
   end
 
   # test "Restaurant Exists" do
   #   assert_equal 1, Restaurant.count
   # end
 
-  test "large resetaurant has capacity of 100" do
-    assert_equal 100, restaurants(:large_restaurant).capacity
+  test "small resetaurant has capacity of 25" do
+    assert_equal 25, @restaurant.capacity
   end
 
-  test "small resetaurant has capacity of 25" do
-    assert_equal 100, restaurants(:small_restaurant).capacity
+  test "reservation when restaurant is under capacity" do
+    @reservation1 = FactoryGirl.create(:reservation, restaurant: @restaurant, datetime: Time.now.beginning_of_hour +
+        1.day, seats: 10)
+    assert_operator @restaurant.capacity, :>, @reservation1.seats
   end
-  
+
+  test "reservation when restaurant is over capacity" do
+    assert_not_operator @restaurant.capacity, :>, (@reservation1.seats + @reservation2.seats)
+  end
+
+
 end
+
+
+

@@ -9,8 +9,8 @@ class Restaurant < ActiveRecord::Base
 
     #same as self.reservations
     #sum up the party sizing column and give it back to me.
-    reservations.sum(:party_size)
-    available_capacity = capacity - reservations.sum(:party_size)
+
+    available_capacity = capacity - reservations.sum(:seats)
   end
 
 end
