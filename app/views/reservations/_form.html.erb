@@ -1,3 +1,18 @@
 
 
-<%= form_for[@restaurant, @reservation] %>
+<%= form_for([@restaurant, @reservation]) do |f| %>
+  <div class="six columns">
+    <%= f.label :reservation_time %>
+    <%= f.datetime_select :reservation_time %>
+  </div>
+
+  <div class="six columns">
+    <%= f.label :seats %>
+    <%= f.number_field :seats%>
+  </div>
+
+  <div class="six columns">
+    <%= f.submit class: "button-primary" %>
+  </div>
+
+<% end %>

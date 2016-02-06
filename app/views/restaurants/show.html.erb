@@ -1,4 +1,29 @@
 <div class="six columns">
-  <h3>Restaurants#show</h3>
-  <p>Find me in app/views/restaurants/show.html.erb</p>
+  <h3><%= @restaurant.name %></h3>
+
+  <p>
+    <img src="<%=@restaurant.picture_url%>" alt="">
+  </p>
+
+  <p>
+    Phone: <%= number_to_phone(@restaurant.phone) %>
+  </p>
+
+  <p>
+    Address: <%= @restaurant.address %>
+  </p>
+
+  <p>
+    Description: <%= @restaurant.description %>
+  </p>
+
+  <p>
+    Capacity: <%= @restaurant.capacity %>
+  </p>
+</div>
+
+
+
+<div id="reservation">
+  <%= render 'reservations/form' %>
 </div>

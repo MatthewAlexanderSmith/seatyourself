@@ -1,16 +1,18 @@
 class ReservationsController < ApplicationController
-  before_action load_restaurant
+  before_action :load_restaurant
+  before_action :current_user
 
   def new
   end
 
   def create
     @reservation = @restaurant.reservations.create(reservation_params)
-    @reservation.user_id = current_user
-
+    @reservation.user_id = @current_user[:id]
+    p @reservation
     if @reservation.save
-      redirect_to user_url
-
+      redirect_to user_url(@current_user), notice: "Reservation Successful!"
+    else
+      render 'restaurants/show'
     end
   end
 
@@ -25,7 +27,7 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:reservation_time, :seats)
+    params.require(:reservation).permit(:reservation_time, :seats, :user_id)
   end
 
   def load_restaurant

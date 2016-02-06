@@ -9,7 +9,7 @@
   <body>
     <div class="container">
 
-      <div class="u-full-width">
+      <div id="nav" class="u-full-width">
         <%= link_to "HomePage", root_path, class: "button u-pull-left" %>
         <% if current_user == nil %>
             <p>
@@ -24,9 +24,7 @@
             </p>
         <% else current_user.owner == 1 %>
             <p>
-              <%= link_to "Add Restaurant", new_restaurant_path, class: "button"%>
-              <%= link_to "Owner Profile", user_path(current_user), class: "button"%>
-              <%= link_to "Log out", session_path("current"), :method => :delete, class: "button"%>
+              <%= link_to "Add Restaurant", new_restaurant_path, class: "button"%><%= link_to "Owner Profile", user_path(current_user), class: "button"%>
             </p>
         <% end %>
       </div>
