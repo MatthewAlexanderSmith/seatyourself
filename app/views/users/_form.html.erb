@@ -1,4 +1,6 @@
-<h1>Sign up!</h1>
+<div class="six columns">
+  <h3>Sign up!</h3>
+</div>
 
 <%= form_for @user do |f| %>
 
@@ -13,27 +15,27 @@
         </div>
     <% end %>
 
-    <div class="field">
+    <div class="six columns">
       <%= f.label :first_name %>
       <%= f.text_field :first_name %>
     </div>
 
-    <div class="field">
+    <div class="six columns">
       <%= f.label :last_name %>
       <%= f.text_field :last_name %>
     </div>
 
-    <div class="field">
+    <div class="six columns">
       <%= f.label :email %>
       <%= f.text_field :email %>
     </div>
 
-    <div class="field">
+    <div class="six columns">
       <%= f.label :password %>
       <%= f.password_field :password %>
     </div>
 
-    <div class="field">
+    <div class="six columns">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
     </div>
@@ -45,6 +47,8 @@
       <%= f.radio_button(:owner, 0)%>
     </div>
 
-    <div class="actions"><%= f.submit class: "button-primary" %></div>
+    <div class="six columns">
+      <%= f.submit class: "button-primary" %>
+    </div>
 
 <% end %>

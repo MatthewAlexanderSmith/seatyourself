@@ -1,0 +1,36 @@
+<%= form_for @restaurant do |f| %>
+
+    <div class="six columns">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "u-full-width" %>
+    </div>
+
+    <div class="six columns">
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: "u-full-width" %>
+    </div>
+
+    <div class="six columns">
+      <%= f.label :capacity %>
+      <%= f.text_field :capacity, class: "u-full-width" %>
+    </div>
+
+    <div class="six columns">
+      <%= f.label :address %>
+      <%= f.text_area :address, class: "u-full-width" %>
+    </div>
+
+    <div class="six columns">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "u-full-width" %>
+    </div>
+
+    <div class="six columns">
+      <div class="button-primary">
+        <%= f.submit %>
+      </div>
+    </div>
+
+
+<% end %>
+

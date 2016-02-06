@@ -1,15 +1,21 @@
-<h1>Log In</h1>
+<div class="six columns">
+  <h3>Log In</h3>
+</div>
 
 <%= form_tag sessions_path do %>
-    <div class="field">
+    <div class="six columns">
       <%= label_tag :email %>
       <%= text_field_tag :email, params[:email] %>
     </div>
 
-    <div class ="field">
+    <div class="six columns">
       <%= label_tag :password %>
       <%= password_field_tag :password %>
     </div>
 
-    <div class="actions"><%= submit_tag "Log in" %></div>
+    <div class="six columns">
+      <div class="button-primary">
+        <%= submit_tag "Log in" %>
+      </div>
+    </div>
 <% end %>
