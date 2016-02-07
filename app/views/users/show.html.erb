@@ -1,10 +1,31 @@
 <div class="six columns">
-  <h3><%= current_user.first_name %>'s Profile</h3>
+  <h3><%= current_user.first_name %>'s</h3>
 
-  <% @user.owned_restaurants.each do |restaurant|  %>
-    <p>
-      <%= restaurant.name %>
-    </p>
-  <% end %>
+   <% if @user.owner == 1 %>
+    <h4>Restaurants</h4>
+      <% @user.owned_restaurants.each do |restaurant|  %>
+        <p>
+          <%= restaurant.name %>
+        </p>
+      <% end %>
+    <% end %>
+
+    <h4>Reservations</h4>
+  <ul></ul>
+    <% @user.reservations.each do |reservation| %>
+        <p>
+          <%= Restaurant.find(reservation[:restaurant_id]).name %>
+        </p>
+
+        <p>
+          Time: <%= reservation.reservation_time %>
+        </p>
+
+        <p>
+          Seats: <%= reservation.seats%>
+        </p>
+    <% end %>
 
 </div>
+
+

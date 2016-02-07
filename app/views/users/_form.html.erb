@@ -40,11 +40,15 @@
       <%= f.password_field :password_confirmation %>
     </div>
 
-    <div class="field">
-      <%= f.label :owner %>
-      <%= f.radio_button(:owner, 1)%>
-      <%= f.label :Patron %>
-      <%= f.radio_button(:owner, 0)%>
+    <div class="six columns">
+      <p>
+        <%= f.label :owner, :style => "float:left;" %>
+        <%= f.radio_button(:owner, 1)%>
+      </p>
+      <p>
+        <%= f.label :Patron, :style => "float:left;" %>
+        <%= f.radio_button(:owner, 0)%>
+      </p>
     </div>
 
     <div class="six columns">

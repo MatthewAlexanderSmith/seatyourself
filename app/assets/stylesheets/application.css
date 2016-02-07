@@ -22,3 +22,17 @@ button, .button {
     min-width: 220px;
 
 }
+
+.listing {
+    border-bottom: 1px inset #222222;
+}
+
+#main_picture {
+    width: 125px;
+    float: right;
+}
+
+.description {
+    display: inline-block;
+}
+

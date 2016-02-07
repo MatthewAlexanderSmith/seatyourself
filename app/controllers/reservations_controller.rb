@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = @restaurant.reservations.create(reservation_params)
     @reservation.user_id = @current_user[:id]
-    p @reservation
+
     if @reservation.save
       redirect_to user_url(@current_user), notice: "Reservation Successful!"
     else

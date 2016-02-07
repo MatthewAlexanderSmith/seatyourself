@@ -1,3 +1,24 @@
-<div class="six columns">
-  <h3>Restaurants Index!</h3>
+<div class="u-full-width">
+  <h3>Restaurants</h3>
+
+  <% @restaurants.each do |restaurant| %>
+
+      <div class="listing">
+        <img id="main_picture" src="<%= restaurant.picture_url %>" alt="">
+        <div class="address">
+          <h6><%= link_to restaurant.name, restaurant_path(restaurant)%></h6>
+          <p><%= restaurant.address %></p>
+        </div>
+        <div class="description">
+
+          <p>
+            <%= restaurant.description %>
+          </p>
+        </div>
+      </div>
+  <% end %>
+
+
 </div>
+
+
