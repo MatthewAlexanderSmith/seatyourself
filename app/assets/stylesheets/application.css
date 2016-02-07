@@ -39,3 +39,11 @@ button, .button {
 footer {
     display: inline-block;
 }
+
+#users_restaurants {
+    border-right: 1px solid black;
+}
+
+#profile {
+    width: 200px;
+}
