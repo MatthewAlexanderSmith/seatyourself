@@ -5,34 +5,57 @@
 
 
 
-<div id="users_restaurants" class="six columns u-pull-left">
-   <% if @user.owner == 1 %>
-    <h4>Restaurants</h4>
+
+  <% if @user.owner == 1 %>
+    <div id="users_restaurants" class="six columns u-pull-left">
+      <h4>Restaurants</h4>
       <% @user.owned_restaurants.each do |restaurant|  %>
         <p>
           <%= restaurant.name %>
         </p>
       <% end %>
+    </div>
+
+    <div class="six columns u-pull-right">
+      <h4>Reservations</h4>
+      <% @user.reservations.each do |reservation| %>
+          <p>
+            <%= Restaurant.find(reservation[:restaurant_id]).name %>
+          </p>
+
+          <p>
+            Time: <%= reservation.reservation_time %>
+          </p>
+
+          <p>
+            Seats: <%= reservation.seats%>
+          </p>
+      <% end %>
+    </div>
+
+    <% else %>
+      <div class="six columns u-pull-left">
+        <h4>Reservations</h4>
+        <% @user.reservations.each do |reservation| %>
+            <p>
+              <%= Restaurant.find(reservation[:restaurant_id]).name %>
+            </p>
+
+            <p>
+              Time: <%= reservation.reservation_time %>
+            </p>
+
+            <p>
+              Seats: <%= reservation.seats%>
+            </p>
+
+        <% end %>
+      </div>
+
     <% end %>
-</div>
 
 
-<div class="six columns u-pull-right">
-    <h4>Reservations</h4>
 
-    <% @user.reservations.each do |reservation| %>
-        <p>
-          <%= Restaurant.find(reservation[:restaurant_id]).name %>
-        </p>
 
-        <p>
-          Time: <%= reservation.reservation_time %>
-        </p>
-
-        <p>
-          Seats: <%= reservation.seats%>
-        </p>
-    <% end %>
-</div>
 
 
