@@ -3,7 +3,7 @@
 <%= form_for([@restaurant, @reservation]) do |f| %>
   <div class="six columns">
     <%= f.label :reservation_time, "Reservation Time" %>
-    <%= f.datetime_select :reservation_time, :discard_minute => true %>
+    <%= f.datetime_select :reservation_time, :default =>{:minute => 0}, :discard_minute => true %>
   </div>
 
   <div class="six columns">
