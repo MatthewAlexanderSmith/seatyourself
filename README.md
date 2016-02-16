@@ -30,7 +30,7 @@ I noticed that, when iterating over this list (self.reservations) in the restaur
 
 To solve the problem I added 'reservation.id' to the if statement shown below(see full context in restaurant model).
 
-Only when a reservation has actually been saved to the database, will it be given an id. 
+Only when a reservation has actually been saved to the database, will it be given an id.
 
 self.reservations.each do |reservation|
   if reservation.id && (reservation.reservation_time == date_time)
@@ -38,3 +38,32 @@ self.reservations.each do |reservation|
     count += 1;
   end
 end
+______
+February 17th, 2015
+
+# Restaurant Model
+  self.reservations.each
+  * iterates through all reservations in memory - which includes the new reservation that has not yet been saved.
+
+bookedSeats = self.reservations.where(reservation_time: date_time).sum(:seats)
+  * executes a database query which will only look at reservations that have already been saved to the database.
+  * finds all the reservations that match date_time
+  * returns the sum of all the seats
+
+return available_capacity >= seats
+  * returns true if expression is true, and false otherwise
+  * replaces the full on if else statement.
+
+# Reservation Model
+* added validation
+  validate :check_availability
+* the check_availability method calls the available? method in the restaurant model
+* adds custom error message
+
+# Reservations Controller
+
+## reservations#create
+
+@reservation.save
+* runs validations in the reservation model
+* calls the check_availability method
