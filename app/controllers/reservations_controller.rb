@@ -9,12 +9,10 @@ class ReservationsController < ApplicationController
     @reservation = @restaurant.reservations.build(reservation_params)
     @reservation.user_id = @current_user[:id]
 
-    # available?(@reservation.seats)
-    puts
-    if @restaurant.available?(@reservation.seats, @reservation.reservation_time)
-      @reservation.save
+    if @reservation.save
       redirect_to user_url(@current_user), notice: "Reservation Successful!"
     else
+      puts @reservation.errors.full_messages
       render 'restaurants/show'
     end
   end

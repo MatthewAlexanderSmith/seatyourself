@@ -47,3 +47,8 @@ footer {
 #profile {
     width: 75px;
 }
+
+input {
+  margin-bottom: 3px;
+  height: 26px;
+}
